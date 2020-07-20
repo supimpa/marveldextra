@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # REST API IN SLIM PHP
 
 Example of REST API with [Slim PHP micro framework](https://www.slimframework.com).
@@ -143,6 +142,3 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
-=======
-# marveldextra
->>>>>>> 0974874c427322da31cb8255657ba22d0d4528ef
