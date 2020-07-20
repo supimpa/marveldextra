@@ -1,0 +1,1144 @@
+{
+	"info": {
+		"_postman_id": "fdf60483-bf64-48bd-ab82-dfa43f37f8f2",
+		"name": "Marvel",
+		"description": "Example of REST API with [Slim PHP micro framework](http://www.slimframework.com).\n\nThis simple RESTful API made in Slim version 3, allows CRUD operations to manage entities like: Users, Tasks and Notes :-)\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Info",
+			"item": [
+				{
+					"name": "Get Help",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches help\"] = responseBody.has(\"help\");",
+									""
+								],
+								"id": "a6ae6677-c2df-41a6-9e15-3a71fafcd237"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							]
+						},
+						"description": "Get help about this api."
+					},
+					"response": [
+						{
+							"name": "Get Help",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain-api-rest-slimphp}}",
+									"host": [
+										"{{domain-api-rest-slimphp}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jun 2019 22:39:02 +0000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "463"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": {\n        \"endpoints\": {\n            \"tasks\": \"http://localhost:8080/api/v1/tasks\",\n            \"users\": \"http://localhost:8080/api/v1/users\",\n            \"notes\": \"http://localhost:8080/api/v1/notes\",\n            \"status\": \"http://localhost:8080/status\",\n            \"this help\": \"http://localhost:8080\"\n        },\n        \"version\": \"0.22.2\",\n        \"timestamp\": 1560897542\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a305d57a-3140-4723-8dc4-8a3c22adf284",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/status",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"status"
+							]
+						},
+						"description": "Get status of this api."
+					},
+					"response": [
+						{
+							"name": "Get Status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain-api-rest-slimphp}}/status",
+									"host": [
+										"{{domain-api-rest-slimphp}}"
+									],
+									"path": [
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jun 2019 22:39:39 +0000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "228"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": {\n        \"db\": {\n            \"users\": 9,\n            \"tasks\": 10,\n            \"notes\": 5\n        },\n        \"version\": \"0.22.2\",\n        \"timestamp\": 1560897579\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "Get information about API.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a844cf5f-2065-4969-b4f3-25278a12b091",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"super.email@host.com\",\n    \"password\": \"OnePass1\"\n}"
+						},
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/login",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login and get a JWT Token Authorization Bearer to use this api."
+					},
+					"response": [
+						{
+							"name": "Login Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"myuser@mail.com\",\n    \"password\": \"IDontKnow\"\n}"
+								},
+								"url": {
+									"raw": "{{domain-api-rest-slimphp}}/login",
+									"host": [
+										"{{domain-api-rest-slimphp}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 May 2019 19:25:28 +0000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.4"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login failed: Email or password incorrect.\",\n    \"class\": \"UserException\",\n    \"status\": \"error\",\n    \"code\": 400\n}"
+						},
+						{
+							"name": "Login OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"m@b.com.ar\",\n    \"password\": \"123\"\n}"
+								},
+								"url": {
+									"raw": "{{domain-api-rest-slimphp}}/login",
+									"host": [
+										"{{domain-api-rest-slimphp}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 May 2019 19:24:12 +0000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "291"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": {\n        \"Authorization\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMSIsImVtYWlsIjoibUBiLmNvbS5hciIsIm5hbWUiOiJNTkIiLCJpYXQiOjE1NTg1NTMwNTIsImV4cCI6MTU1OTE1Nzg1Mn0.OQyICWlGW0oSUB-ANrYL2OJTdC2v0OQQO3RQQ3W_KLo\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4aee876-9395-47e3-bfe8-e4fd717b3543",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches user\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/users",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "59b7a2de-79f2-4bbb-aa05-7a2c450eded2",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches user\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/users/8",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c44294e0-fc9c-4cac-9b61-669a8469af4d",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches user\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/users/search/d",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"search",
+								"d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e81bb147-3acd-4426-bb95-1fc3f2562f33",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"Created\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches user\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John User\",\n  \"email\": \"super.email@host.com\",\n  \"password\": \"OnePass1\"\n}"
+						},
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/users",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						},
+						"description": "Register a new user."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "49be289d-3846-4a8f-b20e-c56046b28949",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches user\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Jhon R\",\n  \"email\": \"ram@hotmail.com\"\n}"
+						},
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/users/4",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"4"
+							]
+						},
+						"description": "Update a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8dee1ac3-37ec-4dc1-8814-030ac7846215",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Status code is 204\"] = responseCode.code === 204;",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/users/112",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"112"
+							]
+						},
+						"description": "Delete a user."
+					},
+					"response": []
+				}
+			],
+			"description": "Manage Users.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "Get All Characters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eb3b79bd-2415-4b10-836c-5f7fdf9be1f8",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches task\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/public/characters",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"characters"
+							]
+						},
+						"description": "Get all tasks of a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Character",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbc3ee6b-f2c7-4ed2-950e-e61952e2424e",
+								"exec": [
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches task\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/characters/7",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"characters",
+								"7"
+							]
+						},
+						"description": "Get one task of a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Character Comics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ad5b35b-f3d2-4c96-96a8-d8f80606e97e",
+								"exec": [
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches task\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/public/characters/1/comics",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"characters",
+								"1",
+								"comics"
+							]
+						},
+						"description": "Get one task of a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Character Series",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3e807162-e03c-421d-b27e-34e2659c6de2",
+								"exec": [
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches task\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/public/characters/1/series",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"characters",
+								"1",
+								"series"
+							]
+						},
+						"description": "Get one task of a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Character Stories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d844cbe1-4a58-4b4e-81e1-03684b3bdc8e",
+								"exec": [
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches task\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/public/characters/1/stories",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"characters",
+								"1",
+								"stories"
+							]
+						},
+						"description": "Get one task of a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Character Events",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "30f9a874-88b0-43fc-b3da-b983db2a2e78",
+								"exec": [
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches task\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/public/characters/1/events",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"characters",
+								"1",
+								"events"
+							]
+						},
+						"description": "Get one task of a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Character",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc13caf2-0767-4954-8eb3-30738a32f10b",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"Created\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches help\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{jwt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Thanos\",\n  \"description\": \"Evil\",\n  \"resourceURI\": \"https://marvel.com\",\n  \"urls\": \"https://marvel.com\",\n  \"thumbnail\": \"data:image/jpeg;base64,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\"\n}\n"
+						},
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/public/characters",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"characters"
+							]
+						},
+						"description": "Create a task."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Character",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "314c5d0a-2b37-4b39-801f-5d040112457a",
+								"exec": [
+									"tests[\"Response time is less than 250ms\"] = responseTime < 250;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+									"tests[\"Body matches success\"] = responseBody.has(\"success\");",
+									"tests[\"Body matches message\"] = responseBody.has(\"message\");",
+									"tests[\"Body matches task\"] = responseBody.has(\"name\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{jwt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"name\": \"Thanos 2.0\",\n  \"description\": \"Evil\",\n  \"resourceURI\": \"\",\n  \"urls\": \"\",\n  \"thumbnail\": \"\"\n}\n"
+						},
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/public/characters/5",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"characters",
+								"5"
+							]
+						},
+						"description": "Update a task of a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Character",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "04b7c280-f5e3-44c9-9aa0-1664133f3916",
+								"exec": [
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Status code is 204\"] = responseCode.code === 204;",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{domain-api-rest-slimphp}}/api/v1/public/characters/5",
+							"host": [
+								"{{domain-api-rest-slimphp}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"characters",
+								"5"
+							]
+						},
+						"description": "Delete a task of a user."
+					},
+					"response": []
+				}
+			],
+			"description": "Manage Characters.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b6b2c397-6d29-4479-92e5-7ef661ed4e8c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "29d5dab3-d5a9-4be1-8766-2c57e2261ad4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "74260ecc-8971-4c7d-8eb6-03b1585243eb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "44ef72b8-77ad-42a1-bc41-7d7a394627c3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
